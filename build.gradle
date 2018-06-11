@@ -1,0 +1,54 @@
+group 'com.legyver'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
+
+
+sourceCompatibility = 1.8
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+	//exception
+	compile group: 'com.legyver', name: 'core', version: '1.0+'
+
+	//utils
+	compile group: 'com.legyver', name: 'utils', version: '1.0+'
+
+	
+	//logging
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+
+}
+
+publishing {
+    publications {
+        fenxlibwidgets(MavenPublication) {
+    			artifactId 'fenxlib-widgets'
+    			from components.java
+        }
+    }
+    repositories {
+		mavenLocal()
+    }
+}
+
+version = "1.0.0.0"
+
+jar {
+
+}
+
+task install(dependsOn: "publishToMavenLocal")
