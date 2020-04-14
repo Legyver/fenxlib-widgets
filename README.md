@@ -113,6 +113,8 @@ copyright.properties
 ```properties
 copyright.format=`Copyright © Legyver 2020-${build.date.year}.`
 ```
+![image](https://user-images.githubusercontent.com/3435255/79179401-8fa9d700-7dd5-11ea-8590-81f0aaec0d4d.png)
+
 See the demo application in src/demo for the full code.
 
 ## Licensing
