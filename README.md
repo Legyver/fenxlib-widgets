@@ -6,7 +6,7 @@ Fenxlib-widgets is in auxiliary project to the fenxlib library.  Whereas fenxlib
 ## Table of Contents
 - [Installation](#installation)
 - [Features](#features)
-- [License](#license)
+- [License](#licensing)
 
 ## Installation
 ### Built With
@@ -113,10 +113,7 @@ copyright.properties
 ```properties
 copyright.format=`Copyright © Legyver 2020-${build.date.year}.`
 ```
-<<<<<<< HEAD
-=======
 ![image](https://user-images.githubusercontent.com/3435255/79179401-8fa9d700-7dd5-11ea-8590-81f0aaec0d4d.png)
->>>>>>> 6405cac9da26d20770ddfffe41fb20de399326b6
 
 See the demo application in src/demo for the full code.
 
