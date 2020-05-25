@@ -113,6 +113,7 @@ copyright.properties
 ```properties
 copyright.format=`Copyright © Legyver 2020-${build.date.year}.`
 ```
+
 See the demo application in src/demo for the full code.
 
 ## Licensing
