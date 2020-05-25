@@ -1,5 +1,7 @@
 package com.legyver.fenxlib.widget.about;
 
+import com.legyver.core.exception.CoreException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -70,19 +72,32 @@ public class AboutPageOptions {
 			return new AboutPageOptions(title, intro, gist, additionalInfo, licenseProperties, buildProperties, copyrightProperties);
 		}
 
-		public Builder dependenciesFile(String filename) throws IOException {
-			licenseProperties.load(klass.getResourceAsStream(filename));
+		public Builder dependenciesFile(String filename) throws CoreException {
+			loadProperties(licenseProperties, filename);
 			return this;
 		}
 
-		public Builder buildPropertiesFile(String filename) throws IOException {
-			buildProperties.load(klass.getResourceAsStream(filename));
+		public Builder buildPropertiesFile(String filename) throws CoreException {
+			loadProperties(buildProperties, filename);
 			return this;
 		}
 
-		public Builder copyrightPropertiesFile(String filename) throws IOException {
-			copyrightProperties.load(klass.getResourceAsStream(filename));
+		public Builder copyrightPropertiesFile(String filename) throws CoreException {
+			loadProperties(copyrightProperties, filename);
 			return this;
+		}
+
+		private void loadProperties(Properties properties, String filename) throws CoreException {
+			try {
+				InputStream is = klass.getClassLoader().getResourceAsStream(filename);
+				if (is != null) {
+					properties.load(is);
+				} else {
+					throw new CoreException("Unable to find resource: " + filename);
+				}
+			} catch (IOException ex) {
+				throw new CoreException("Unable to load resource: " + filename, ex);
+			}
 		}
 
 		public Builder title(String title) {
