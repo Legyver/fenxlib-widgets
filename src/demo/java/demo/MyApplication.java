@@ -1,13 +1,13 @@
 package demo;
 
+import com.legyver.fenxlib.config.options.ApplicationOptions;
+import com.legyver.fenxlib.config.options.DefaultApplicationOptions;
 import com.legyver.fenxlib.factory.*;
 import com.legyver.fenxlib.factory.menu.*;
 import com.legyver.fenxlib.factory.options.BorderPaneInitializationOptions;
 import com.legyver.fenxlib.locator.query.ComponentQuery;
 import com.legyver.fenxlib.locator.query.QueryableComponentRegistry;
 import com.legyver.fenxlib.uimodel.IUiModel;
-import com.legyver.fenxlib.util.ApplicationOptions;
-import com.legyver.fenxlib.util.DefaultApplicationOptions;
 import com.legyver.fenxlib.util.GuiUtil;
 import com.legyver.fenxlib.widget.about.AboutMenuItemFactory;
 import com.legyver.fenxlib.widget.about.AboutPageOptions;
@@ -74,7 +74,7 @@ public class MyApplication extends Application {
 	private static class MyApplicationOptions extends DefaultApplicationOptions<ApplicationUIModel> {
 
 		public MyApplicationOptions(Stage primaryStage, ApplicationUIModel uiModel) {
-			super(primaryStage, uiModel);
+			super("FenxlibWidgetsDemo", primaryStage, uiModel);
 		}
 	}
 
